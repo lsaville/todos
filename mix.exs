@@ -18,7 +18,7 @@ defmodule Todos.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Todos, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
+     applications: [:ex_machina, :phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
                     :phoenix_ecto, :postgrex]]
   end
 
