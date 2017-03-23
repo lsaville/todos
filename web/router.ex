@@ -19,6 +19,11 @@ defmodule Todos.Router do
     get "/", PageController, :index
   end
 
+  scope "/api", Todos do
+    pipe_through :api
+
+    resources "/todos", TodoController, only: [:index]
+  end
   # Other scopes may use custom stacks.
   # scope "/api", Todos do
   #   pipe_through :api
