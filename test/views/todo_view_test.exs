@@ -1,12 +1,12 @@
 defmodule Todos.TodoViewTest do
-  use ModelCase
+  use Todos.ModelCase
   import Todos.Factory
   alias Todos.TodoView
 
   test "todo_json" do
     todo = insert(:todo)
 
-    rednered_todo = TodoView.todo_json(todo)
+    rendered_todo = TodoView.todo_json(todo)
 
     assert rendered_todo == %{
       title:       todo.title,
