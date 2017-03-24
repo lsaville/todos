@@ -11,11 +11,27 @@ defmodule Todos.TodoControllerTest do
 
     assert json_response(conn, 200) == %{
       "todos" => [%{
-        "title" => todo.title,
+        "title"       => todo.title,
         "description" => todo.description,
         "inserted_at" => NaiveDateTime.to_iso8601(todo.inserted_at),
-        "updated_at" => NaiveDateTime.to_iso8601(todo.updated_at)
+        "updated_at"  => NaiveDateTime.to_iso8601(todo.updated_at)
       }]
+    }
+  end
+
+  test "#show renders a single todo" do
+    conn = build_conn()
+    todo = insert(:todo)
+
+    conn = get conn, todo_path(conn, :show, todo)
+
+    assert json_response(conn, 200) == %{
+      "todo" => %{
+        "title"       => todo.title,
+        "description" => todo.description,
+        "inserted_at" => NaiveDateTime.to_iso8601(todo.inserted_at),
+        "updated_at"  => NaiveDateTime.to_iso8601(todo.updated_at)
+      }
     }
   end
 end
