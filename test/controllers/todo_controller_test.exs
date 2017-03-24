@@ -4,8 +4,6 @@ defmodule Todos.TodoControllerTest do
   test "#index renders a list of todos" do
     conn = build_conn()
     todo = insert(:todo)
-#    {_, inserted} = Ecto.DateTime.cast(todo.inserted_at)
-#    {_, updated} = Ecto.DateTime.cast(todo.updated_at)
 
     conn = get conn, todo_path(conn, :index)
 
